@@ -263,9 +263,32 @@ h4 {
   transform: translateY(-2px);
 }
 
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.78;
+}
+
+.btn:disabled:hover {
+  transform: none;
+}
+
 .btn:focus-visible {
   outline: 2px solid var(--brand-alt);
   outline-offset: 3px;
+}
+
+.btn-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  display: none;
+  animation: spin 0.75s linear infinite;
+}
+
+.is-loading .btn-spinner {
+  display: inline-block;
 }
 
 /* Hero */
@@ -557,6 +580,28 @@ h4 {
   background: linear-gradient(135deg, var(--brand), #8ff0d5);
 }
 
+.lucide-badge {
+  flex: 0 0 auto;
+  width: 50px;
+  height: 50px;
+  padding: 12px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-alt);
+  background: linear-gradient(135deg, rgba(75, 124, 255, 0.14), rgba(31, 206, 160, 0.12));
+  border: 1px solid rgba(75, 124, 255, 0.18);
+  box-shadow: 0 12px 24px rgba(75, 124, 255, 0.13);
+}
+
+.lucide-badge i,
+.lucide-badge svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 1.9;
+}
+
 .checklist {
   list-style: none;
   padding: 0;
@@ -782,6 +827,10 @@ h4 {
   background: rgba(255, 255, 255, 0.92);
 }
 
+.prelaunch-form.is-confirmed {
+  animation: confirm-pulse 0.65s ease;
+}
+
 .form-brand {
   display: flex;
   gap: 0.8rem;
@@ -822,6 +871,33 @@ input:focus,
 select:focus {
   outline: 2px solid rgba(75, 124, 255, 0.35);
   border-color: rgba(75, 124, 255, 0.6);
+}
+
+.form-status {
+  margin: 0;
+  padding: 0.75rem 0.9rem;
+  border-radius: 12px;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.form-status.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.form-status.success {
+  color: #0f684f;
+  background: rgba(31, 206, 160, 0.12);
+  border: 1px solid rgba(31, 206, 160, 0.34);
+}
+
+.form-status.error {
+  color: #9b1c1c;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.26);
 }
 
 .tiny {
@@ -1056,5 +1132,17 @@ section {
   * {
     transition: none !important;
     animation: none !important;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes confirm-pulse {
+  45% {
+    box-shadow: 0 0 0 5px rgba(31, 206, 160, 0.16), var(--shadow-soft);
   }
 }
