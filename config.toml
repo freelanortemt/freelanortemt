@@ -1,0 +1,4 @@
+project_id = "awucehnmppipjsemhzna"
+
+[functions.notify-ios-interest]
+verify_jwt = false
