@@ -225,15 +225,23 @@ h4 {
 }
 
 .btn.primary {
-  background: linear-gradient(135deg, var(--brand), var(--brand-alt));
+  background: linear-gradient(135deg, #1cc9a5, #4b7cff);
   color: #fff;
-  box-shadow: 0 14px 28px rgba(31, 206, 160, 0.3);
+  box-shadow: 0 16px 36px rgba(31, 206, 160, 0.28);
+}
+
+.btn.primary:hover {
+  box-shadow: 0 18px 42px rgba(31, 206, 160, 0.34);
 }
 
 .btn.secondary {
-  background: #0b1222;
+  background: linear-gradient(135deg, #111827, #152543);
   color: #fff;
-  box-shadow: 0 16px 32px rgba(11, 18, 34, 0.28);
+  box-shadow: 0 14px 30px rgba(11, 18, 34, 0.26);
+}
+
+.btn.secondary:hover {
+  box-shadow: 0 16px 36px rgba(11, 18, 34, 0.32);
 }
 
 .btn.ghost {
@@ -336,8 +344,12 @@ h4 {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-size: 0.78rem;
-  color: var(--gold);
+  color: var(--brand-alt);
   margin: 0 0 0.7rem;
+}
+
+.hero .eyebrow {
+  color: rgba(255, 255, 255, 0.86);
 }
 
 .hero-actions {
@@ -454,6 +466,7 @@ h4 {
 .section-header h2 {
   margin: 0.2rem 0 0.6rem;
   font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  line-height: 1.05;
 }
 
 .section-text {
@@ -468,6 +481,14 @@ h4 {
   padding: 1.4rem;
   border: 1px solid rgba(11, 18, 34, 0.08);
   box-shadow: var(--shadow-soft);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 45px rgba(9, 16, 32, 0.14);
+  border-color: rgba(11, 18, 34, 0.12);
 }
 
 /* Problem */
@@ -612,11 +633,31 @@ h4 {
 
 .population-card {
   display: grid;
-  gap: 0.6rem;
+  gap: 1rem;
+  padding: 1.5rem;
 }
 
 .population-card h3 {
   margin: 0;
+}
+
+.icon-badge {
+  width: 54px;
+  height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(75, 124, 255, 0.18), rgba(31, 206, 160, 0.18));
+  border: 1px solid rgba(75, 124, 255, 0.22);
+  box-shadow: 0 14px 30px rgba(75, 124, 255, 0.08);
+  color: var(--ink-strong);
+}
+
+.icon-badge svg {
+  width: 26px;
+  height: 26px;
+  stroke: currentColor;
 }
 
 .population-card p {
